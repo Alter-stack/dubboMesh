@@ -1,0 +1,22 @@
+syntax = "proto3";
+package message;
+
+message AgentRequest {
+    int64 requestID=1;
+    string interface=2;
+    string method=3;
+    string parameterTypesString=4;
+    string parameter=5;
+}
+
+message AgentResponse {
+    int64 requestID=1;
+    int64 respLen=2;
+}
+
+
+// Service to manage list of todo tasks
+service AgentService {
+    // Create new todo task
+    rpc Server(AgentRequest) returns (AgentResponse);
+}
